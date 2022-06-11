@@ -129,4 +129,4 @@ dmypy.json
 .pyre/
 
 # Dataset
-data/
+data/dataset/raw/

@@ -51,11 +51,11 @@ def crop_defects():
             # Crop and save
             cropped_img = img.crop((min_x, min_y, max_x, max_y))
 
-            new_file_name = str(counters[label]) + '.jpg'
-            counters[label] += 1
-
             cropped_width, cropped_height = cropped_img.size
-            if cropped_width > Params.min_cropped_width and cropped_height > Params.min_cropped_height:
+            if cropped_width > Params.min_cropped_width and \
+                    cropped_height > Params.min_cropped_height:
+                new_file_name = str(counters[label]) + '.jpg'
+                counters[label] += 1
                 cropped_img.save(os.path.join(
                     Params.proc_imgs_path, label, new_file_name))
 
@@ -65,3 +65,18 @@ def process_dataset():
         os.mkdir(Params.proc_imgs_path)
     create_class_dirs()
     crop_defects()
+
+
+# Retruns dict label_path: number_of_samples
+def get_data_counters():
+    labels = os.listdir(Params.proc_imgs_path)
+    data_counters = {}
+
+    for label in labels:
+        label_dir = os.path.join(Params.proc_imgs_path, label)
+        samples_number = len(os.listdir(label_dir))
+
+        if samples_number > 0:
+            data_counters[label] = samples_number
+
+    return data_counters

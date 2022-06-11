@@ -13,8 +13,7 @@ class Params:
               'resin',
               'Marrow',
               'Blue_stain',
-              'overgrown'
-              ]
+              'overgrown']
 
     # Directories
     root = get_project_root()
