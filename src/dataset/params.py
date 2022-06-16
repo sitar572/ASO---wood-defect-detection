@@ -20,6 +20,7 @@ class Params:
     proc_imgs_path = os.path.join(root, 'data/dataset/processed')
     raw_imgs_path = os.path.join(root, 'data/dataset/raw/images')
     boundings_path = os.path.join(root, 'data/dataset/raw/boundings')
+    samples_path = os.path.join(root, 'data/dataset/raw_samples')
 
     # Images processing params
     min_cropped_width = 20
